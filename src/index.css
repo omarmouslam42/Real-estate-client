@@ -1,0 +1,50 @@
+body{
+    background-color: rgb(247, 246, 246);
+}
+.signup-btn{
+    background-color: rgb(19, 19, 42) !important;
+}
+.signup-google{
+    background-color: rgb(189, 31, 31) !important;
+}
+.mmm{
+    background-color: rgb(156, 20, 20) !important;
+}
+.sign{
+    background-color: #006400;
+}
+a{
+    text-decoration: none;
+}
+.card{
+    overflow: hidden;
+}
+.card-hover{
+    transition: all 0.5s;
+
+}
+.card-hover:hover{
+    transform: scale(1.1);
+}
+
+.card-body h5:hover{
+    text-decoration: underline ;
+}
+.truncate {
+    text-overflow: ellipsis;
+  
+    /* Needed to make it work */
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+  }
+
+  .signc-btn{
+    background-color: rgb(#c9dae0)
+}
