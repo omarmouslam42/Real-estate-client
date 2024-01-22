@@ -9,7 +9,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaLocationDot } from 'react-icons/fa6';
 import { IoMdAddCircleOutline } from "react-icons/io";
-import { Helmet } from 'react-helmet';
+// import { Helmet } from 'react-helmet';
 import dotenv from "dotenv"
 // dotenv.config("dotenv")
 
@@ -19,27 +19,29 @@ export default function Home() {
   const [offerData, setOfferData] = useState([])
   const [rentData, setRentData] = useState([])
   const [saleData, setSaleData] = useState([])
-  const baseUrl='https://real-estate-back-nine.vercel.app'
+  const baseUrl = 'https://real-estate-back-nine.vercel.app'
 
   const navigate = useNavigate()
-  useEffect(() => {
-    const getDataWithOffer = async () => {
-      const { data } = await axios.get(`${baseUrl}/api/listing/get?offer=true&limit=4`)
-      // console.log(data);
-      setOfferData(data.listing)
-    }
-    
-    const getDataWithRent = async () => {
-      const { data } = await axios.get(`${baseUrl}/api/listing/get?type=rent&limit=4`)
-      // console.log(data);
-      setRentData(data.listing)
-    }
 
-    const getDataWithSale = async () => {
-      const { data } = await axios.get(`${baseUrl}/api/listing/get?type=sell&limit=4`)
-      // console.log(data);
-      setSaleData(data.listing)
-    }
+  const getDataWithOffer = async () => {
+    const { data } = await axios.get(`${baseUrl}/api/listing/get?offer=true&limit=4`)
+    // console.log(data);
+    setOfferData(data.listing)
+  }
+
+  const getDataWithRent = async () => {
+    const { data } = await axios.get(`${baseUrl}/api/listing/get?type=rent&limit=4`)
+    // console.log(data);
+    setRentData(data.listing)
+  }
+
+  const getDataWithSale = async () => {
+    const { data } = await axios.get(`${baseUrl}/api/listing/get?type=sell&limit=4`)
+    // console.log(data);
+    setSaleData(data.listing)
+  }
+
+  useEffect(() => {
 
     getDataWithOffer()
     getDataWithRent()
@@ -47,13 +49,12 @@ export default function Home() {
 
 
   }, [])
+
   // console.log(offerData);
 
   return (
     <div>
-      <Helmet>
-        <title>Home</title>
-      </Helmet>
+     
       <div className='container my-5'>
         <h1 className='w-50 fw-bolder'>Find your next <span className='text-muted'>perfect</span><br /> place with ease</h1>
         <p className='text-muted fw-bolder opacity-75' >Modern Estate will help you find your home fast, easy and comfortable. <br />Our expert support are always available.</p>

@@ -7,7 +7,7 @@ import { DeleteUser, Filure, Start, Success, Validation } from '../redux/user/us
 import { MdError } from 'react-icons/md'
 import { ToastContainer, toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
-import { Helmet } from 'react-helmet'
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 
 
 export default function Profile() {
@@ -26,7 +26,7 @@ export default function Profile() {
     "authorization": `bazoka_${localStorage.getItem("token")}`
   }
   const navigate = useNavigate()
-  const baseUrl='https://real-estate-back-nine.vercel.app'
+  const baseUrl = 'https://real-estate-back-nine.vercel.app'
   const handleChange = (e) => {
     dispatch(Filure(null))
     dispatch(Validation([]))
@@ -157,14 +157,19 @@ export default function Profile() {
 
   return (
     <div>
-      <Helmet>
-        <title>profile</title>
-      </Helmet>
+      <HelmetProvider>
+        <div>
+          <Helmet>
+            <meta />
+            <title >Profile</title>
+          </Helmet>
+        </div>
+      </HelmetProvider>
       <div className=' w-50 mx-auto mt-4 mb-2 d-flex flex-column justify-content-center align-items-center'>
         <h3 className='text-center fw-bold'>Profile</h3>
         <div className='w-50 mx-auto d-flex flex-column justify-content-center align-items-center mt-3'>
           <input onChange={(e) => { setFile(e.target.files[0]) }} type="file" hidden ref={fileRef} accept='image/*' />
-          <img onClick={() => { fileRef.current.click() }} style={{ cursor: "pointer",width:"60px",height:"60px" }} src={formData.avatar || currentUser.avatar}
+          <img onClick={() => { fileRef.current.click() }} style={{ cursor: "pointer", width: "60px", height: "60px" }} src={formData.avatar || currentUser.avatar}
             className=' rounded-circle' alt="profile img" />
           <p className='mt-2'>
             {

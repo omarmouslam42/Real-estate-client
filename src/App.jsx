@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, RouterProvider, Routes, createBrowserRouter } from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -8,7 +8,7 @@ import Profile from './pages/Profile'
 import Header from './components/Header'
 import PraviteRouter from './components/PraviteRouter'
 import CreateListing from './pages/CreateListing'
-import Edit from './pages/Edit.jsx'
+import Edit from './pages/EditPage.jsx'
 import Listing from './pages/Listing.jsx'
 import Search from './pages/Search.jsx'
 
@@ -33,6 +33,9 @@ function App() {
       </Routes>
     </BrowserRouter>
   )
+
+
+
 }
 
 export default App

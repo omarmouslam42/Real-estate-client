@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { FaLocationDot } from "react-icons/fa6";
 import { Link, useNavigate } from 'react-router-dom';
 import { FaLongArrowAltRight } from "react-icons/fa";
-import { Helmet } from 'react-helmet';
 
 export default function Search() {
     const [listing, setListing] = useState([])
@@ -105,9 +104,7 @@ export default function Search() {
 
     return (
         <div className='pe-3'>
-            <Helmet>
-                <title>Real-Estate</title>
-            </Helmet>
+            
             <div className='row vh-100'>
                 <div className='col-md-4 '>
                     <form onSubmit={handleSubmit} className='h-100  border-end overflow-hidden p-4 d-flex flex-column flex-wrap gap-4  shadow-sm '>

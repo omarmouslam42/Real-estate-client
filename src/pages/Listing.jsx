@@ -9,7 +9,6 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { MdError } from "react-icons/md";
 import { ToastContainer, toast } from 'react-toastify';
-import { Helmet } from 'react-helmet';
 
 export default function Listing() {
   const { currentUser } = useSelector((state) => state.user)
@@ -81,9 +80,7 @@ export default function Listing() {
   // console.log(currentUser);
   return (
     <div className=''>
-      <Helmet>
-        <title>Real-Estate</title>
-      </Helmet>
+     
       {error === "Sorry, it`s wrong with server" && <h4 className='text-center mt-5'>Sorry, it`s wrong with server..</h4>}
       <ToastContainer autoClose={3000} />
       {loading === true && <div className='d-flex justify-content-center align-items-center'> <h4>Lodaing..</h4> </div>}
