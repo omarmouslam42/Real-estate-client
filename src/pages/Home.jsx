@@ -10,6 +10,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaLocationDot } from 'react-icons/fa6';
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { Helmet } from 'react-helmet';
+import dotenv from "dotenv"
+// dotenv.config("dotenv")
 
 
 export default function Home() {
@@ -17,22 +19,24 @@ export default function Home() {
   const [offerData, setOfferData] = useState([])
   const [rentData, setRentData] = useState([])
   const [saleData, setSaleData] = useState([])
+  const baseUrl='https://real-estate-back-nine.vercel.app'
+
   const navigate = useNavigate()
   useEffect(() => {
     const getDataWithOffer = async () => {
-      const { data } = await axios.get(`https://real-estate-gzvd.onrender.com/api/listing/get?offer=true&limit=4`)
+      const { data } = await axios.get(`${baseUrl}/api/listing/get?offer=true&limit=4`)
       // console.log(data);
       setOfferData(data.listing)
     }
-
+    
     const getDataWithRent = async () => {
-      const { data } = await axios.get(`https://real-estate-gzvd.onrender.com/api/listing/get?type=rent&limit=4`)
+      const { data } = await axios.get(`${baseUrl}/api/listing/get?type=rent&limit=4`)
       // console.log(data);
       setRentData(data.listing)
     }
 
     const getDataWithSale = async () => {
-      const { data } = await axios.get(`https://real-estate-gzvd.onrender.com/api/listing/get?type=sell&limit=4`)
+      const { data } = await axios.get(`${baseUrl}/api/listing/get?type=sell&limit=4`)
       // console.log(data);
       setSaleData(data.listing)
     }

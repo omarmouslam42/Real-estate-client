@@ -11,6 +11,7 @@ export default function () {
   const navigate = useNavigate()
   const { error, loading, validationErr } = useSelector(state => state.user)
   const dispatch = useDispatch()
+  const baseUrl = 'https://real-estate-back-nine.vercel.app'
 
   const handleChange = (e) => {
     dispatch(Filure(null))
@@ -23,7 +24,7 @@ export default function () {
     try {
       // setLoading(true)
       dispatch(Start())
-      const { data } = await axios.post(`http://localhost:5000/api/auth/sign-in`, formData)
+      const { data } = await axios.post(`${baseUrl}/api/auth/sign-in`, formData)
       // console.log(data);
       if (data.message === "Validation Err") {
         dispatch(Validation(data.validationErr[0]))
@@ -37,7 +38,7 @@ export default function () {
     } catch (error) {
       const { msgError } = error.response.data
       dispatch(Filure(msgError))
-      }
+    }
   }
 
   function sendKey(key) {
@@ -61,8 +62,8 @@ export default function () {
               {sendKey("password") && <p className='text-danger fw-semibold'><MdError /> in-Valid Password </p>}
             </div>
             <button type='submit' className='btn btn-white signup-btn text-white'>{loading ? "Loading..." : "SIGN IN"}</button>
-            <OAuth/>
-            <p className='fw-bold' style={{ fontSize: "14px" }}>Don't have an account? <Link to={'/sign-up'} style={{textDecoration:"underline"}}>Sign up</Link></p>
+            <OAuth />
+            <p className='fw-bold' style={{ fontSize: "14px" }}>Don't have an account? <Link to={'/sign-up'} style={{ textDecoration: "underline" }}>Sign up</Link></p>
           </form>
         </div>
         {error != null && <p className='text-danger fw-semibold'><MdError /> in-valid email or password</p>}

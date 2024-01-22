@@ -26,7 +26,7 @@ export default function Profile() {
     "authorization": `bazoka_${localStorage.getItem("token")}`
   }
   const navigate = useNavigate()
-  const baseUrl='http://localhost:5000'
+  const baseUrl='https://real-estate-back-nine.vercel.app'
   const handleChange = (e) => {
     dispatch(Filure(null))
     dispatch(Validation([]))

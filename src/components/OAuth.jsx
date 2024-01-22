@@ -9,13 +9,15 @@ import { useNavigate } from 'react-router-dom'
 export default function OAuth() {
     const dispatch = useDispatch()
     const navigate =useNavigate()
+    const baseUrl='https://real-estate-back-nine.vercel.app'
+
     const handleGoogle = async () => {
         try {
             const provider = new GoogleAuthProvider()
             const auth = getAuth(app)
             const result = await signInWithPopup(auth, provider)
             // console.log(result);
-            const { data } = await axios.post(`http://localhost:5000/api/auth/google`,
+            const { data } = await axios.post(`${baseUrl}/api/auth/google`,
                 {
                     userName: result.user.displayName,
                     email: result.user.email,
@@ -31,7 +33,7 @@ export default function OAuth() {
             localStorage.setItem("token", data.token)
             navigate('/')
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             dispatch(Filure(error))
         }
     }

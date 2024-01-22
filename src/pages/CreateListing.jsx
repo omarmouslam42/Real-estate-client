@@ -27,8 +27,8 @@ export default function CreateListing() {
     const [error, setError] = useState(false)
     const [submit, setSubmit] = useState(false)
     const [validationErr, setValidatinErr] = useState(null)
-    // console.log(files);
-    // console.log(formData);
+    const baseUrl='https://real-estate-back-nine.vercel.app'
+    
     const headers = {
         "content-type": "application/json",
         "authorization": `bazoka_${localStorage.getItem("token")}`
@@ -108,7 +108,7 @@ export default function CreateListing() {
         // console.log(formData);
         try {
             setSubmit(true)
-            const { data } = await axios.post(`http://localhost:5000/api/listing/create`, formData, { headers })
+            const { data } = await axios.post(`${baseUrl}/api/listing/create`, formData, { headers })
             console.log(data);
             if (data.message == "Done") {
                 setSubmit(false)

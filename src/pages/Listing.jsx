@@ -20,6 +20,7 @@ export default function Listing() {
   const [contact, setContact] = useState(false)
   const [message, setMessage] = useState(null)
   const navigate = useNavigate()
+  const baseUrl='https://real-estate-back-nine.vercel.app'
   const headers = {
     "content-type": "application/json",
     "authorization": `bazoka_${localStorage.getItem("token")}`
@@ -29,7 +30,7 @@ export default function Listing() {
   useEffect(() => {
     const handleListing = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:5000/api/listing/getById/${id}`)
+        const { data } = await axios.get(`${baseUrl}/api/listing/getById/${id}`)
         // console.log(data);
         if (data.message === 'Done') {
           setListing(data.listing)
@@ -61,7 +62,7 @@ export default function Listing() {
 
   const handleSubmit = async () => {
     try {
-      const { data } = await axios.post(`http://localhost:5000/api/listing/sendEmail`, { message }, { headers })
+      const { data } = await axios.post(`${baseUrl}/api/listing/sendEmail`, { message }, { headers })
       // console.log(data);
       if (data.message === "Validation Err") {
         setError("Validation Err")

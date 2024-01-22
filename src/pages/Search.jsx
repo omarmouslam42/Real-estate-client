@@ -10,6 +10,8 @@ export default function Search() {
     const [error, setError] = useState(false)
     const [showMore, setShowMore] = useState(false)
     const [limit, setLimit] = useState(6)
+    const baseUrl='https://real-estate-back-nine.vercel.app'
+
     const [searchInputs, setSearchInputs] = useState({
         searchKey: "",
         type: "all",
@@ -81,7 +83,7 @@ export default function Search() {
         }
         const getData = async () => {
             try {
-                const { data } = await axios.get(`http://localhost:5000/api/listing/get?${searchQery}`, { headers })
+                const { data } = await axios.get(`${baseUrl}/api/listing/get?${searchQery}`, { headers })
                 // console.log(data.listing.length);
                 // console.log(data.listing);
                 setListing(data.listing)

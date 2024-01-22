@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { MdError } from "react-icons/md";
 import { useDispatch } from 'react-redux';
 import { Helmet } from 'react-helmet';
+import OAuth from '../components/OAuth';
 
 export default function Signup() {
   const [formData, setFormData] = useState({})
@@ -12,6 +13,7 @@ export default function Signup() {
   const [validationErr, setValidationErr] = useState([])
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const baseUrl = 'https://real-estate-back-nine.vercel.app'
 
   const handleChange = (e) => {
     setError(null)
@@ -23,7 +25,7 @@ export default function Signup() {
     try {
       setLoading(true)
       // dispatch(signInStart())
-      const { data } = await axios.post(`http://localhost:5000/api/auth/sign-up`, formData)
+      const { data } = await axios.post(`${baseUrl}/api/auth/sign-up`, formData)
       console.log(data);
       if (data.message === "Validation Err") {
         setValidationErr(data?.validationErr[0])
@@ -71,7 +73,8 @@ export default function Signup() {
             {sendKey("password") && <p className=' text-danger fw-semibold'><MdError /> in-valid Password </p>}
 
             <button type='submit' className='btn btn-white signup-btn text-white mt-1'>{loading ? "Loading.." : "SIGN UP"}</button>
-            <button className='btn btn-danger signup-google mt-1'>SIGN UP WITH GOOGLE</button>
+            {/* <button className='btn btn-danger signup-google mt-1'>SIGN UP WITH GOOGLE</button> */}
+            <OAuth />
             <p className='fw-bold ' style={{ fontSize: "14px" }}>Have an account? <Link to={'/sign-in'} style={{ textDecoration: "underline" }}>Sign in</Link></p>
           </form>
         </div>

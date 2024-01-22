@@ -7,6 +7,8 @@ import { app } from '../firebase';
 import { Helmet } from 'react-helmet';
 
 export default function Edit() {
+  const baseUrl='https://real-estate-back-nine.vercel.app'
+
     const { id } = useParams()
     const [listing, setListing] = useState({
         images: [],
@@ -38,7 +40,7 @@ export default function Edit() {
     useEffect(() => {
         const listing = async () => {
             try {
-                const { data } = await axios.get(`http://localhost:5000/api/listing/getListing/${id}`, { headers })
+                const { data } = await axios.get(`${baseUrl}/api/listing/getListing/${id}`, { headers })
                 // console.log(data);  
                 if (data.message == "Done") {
                     setListing(data.listing)
