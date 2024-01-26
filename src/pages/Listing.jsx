@@ -19,7 +19,7 @@ export default function Listing() {
   const [contact, setContact] = useState(false)
   const [message, setMessage] = useState(null)
   const navigate = useNavigate()
-  const baseUrl='https://real-estate-back-nine.vercel.app'
+  const baseUrl = 'https://real-estate-back-nine.vercel.app'
   const headers = {
     "content-type": "application/json",
     "authorization": `bazoka_${localStorage.getItem("token")}`
@@ -80,7 +80,7 @@ export default function Listing() {
   // console.log(currentUser);
   return (
     <div className=''>
-     
+
       {error === "Sorry, it`s wrong with server" && <h4 className='text-center mt-5'>Sorry, it`s wrong with server..</h4>}
       <ToastContainer autoClose={3000} />
       {loading === true && <div className='d-flex justify-content-center align-items-center'> <h4>Lodaing..</h4> </div>}
@@ -130,7 +130,7 @@ export default function Listing() {
             </span>
           </div>
           <div className='w-75 d-flex flex-column m-auto justify-content-center align-items-center gap-3'>
-            {contact === false && currentUser._id !== listing.createdBy && <button onClick={handleContact} className='btn btn-dark w-100  mt-3'>CONTACT US</button>}
+            {contact === false && currentUser?._id !== listing.createdBy && <button onClick={handleContact} className='btn btn-dark w-100  mt-3'>CONTACT US</button>}
             {contact === true && <textarea onChange={(e) => { setMessage(e.target.value) }} value={message} className='w-100 form-control shadow-sm mt-2' placeholder='Enter your Message Here...' rows="4"></textarea>}
             {contact === true && <div className='d-flex justify-content-start align-self-end gap-2 align-items-end '>
               <button onClick={() => {

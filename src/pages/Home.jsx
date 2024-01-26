@@ -54,7 +54,7 @@ export default function Home() {
 
   return (
     <div>
-     
+
       <div className='container my-5'>
         <h1 className='w-50 fw-bolder'>Find your next <span className='text-muted'>perfect</span><br /> place with ease</h1>
         <p className='text-muted fw-bolder opacity-75' >Modern Estate will help you find your home fast, easy and comfortable. <br />Our expert support are always available.</p>
@@ -114,17 +114,17 @@ export default function Home() {
         </div>
         <div className='row  justify-content-start '>
           {offerData.length > 0 ? offerData.map((item) => {
-            return <div key={item._id} className='p-2 col-sm-10 col-md-6 col-lg-3 '>
+            return <div key={item?._id} className='p-2 col-sm-10 col-md-6 col-lg-3 '>
               <div className="card shadow-sm border-0 w-100 " >
-                <img src={item.images[0]} className="card-img-top card-hover" height={200} alt="card-img" loading='lazy' />
+                <img src={item?.images[0]} className="card-img-top card-hover" height={200} alt="card-img" loading='lazy' />
                 <div className="card-body">
-                  <h5 className='fw-bold line-clamp' style={{ cursor: "pointer" }}> <Link className='text-dark' to={`/listing/${item._id}`}>{item.name}</Link></h5>
-                  <p className='text-muted fw-semibold d-flex justify-content-start line-clamp align-items-center gap-1' style={{ fontSize: "14px" }}> <FaLocationDot className='text-success' /> {item.address}</p>
-                  <p className="card-text text-muted fw-semibold lh-sm line-clamp" style={{ fontSize: "14px" }}>{item.description}</p>
-                  <span className='text-muted fw-semibold'>${item.regularPrice}/month</span>
+                  <h5 className='fw-bold line-clamp' style={{ cursor: "pointer" }}> <Link className='text-dark' to={`/listing/${item?._id}`}>{item?.name}</Link></h5>
+                  <p className='text-muted fw-semibold d-flex justify-content-start line-clamp align-items-center gap-1' style={{ fontSize: "14px" }}> <FaLocationDot className='text-success' /> {item?.address}</p>
+                  <p className="card-text text-muted fw-semibold lh-sm line-clamp" style={{ fontSize: "14px" }}>{item?.description}</p>
+                  <span className='text-muted fw-semibold'>${item?.regularPrice}/month</span>
                   <div className='d-flex justify-content-start align-items-center gap-3 fw-bold' style={{ fontSize: "15px" }}>
-                    <span>{item.bedrooms} {item.bedrooms > 1 ? "Beds" : "Bed"}</span>
-                    <span>{item.bathrooms} {item.bathrooms > 1 ? "baths" : "Bath"}</span>
+                    <span>{item?.bedrooms} {item?.bedrooms > 1 ? "Beds" : "Bed"}</span>
+                    <span>{item?.bathrooms} {item?.bathrooms > 1 ? "baths" : "Bath"}</span>
                   </div>
                 </div>
               </div>
@@ -148,14 +148,14 @@ export default function Home() {
         </div>
         <div className='row  justify-content-start'>
           {rentData.length > 0 ? rentData.map((item) => {
-            return <div key={item._id} className='p-2 col-sm-10 col-md-6 col-lg-3 '>
+            return <div key={item?._id} className='p-2 col-sm-10 col-md-6 col-lg-3 '>
               <div className="card shadow-sm border-0 w-100 " >
                 <img src={item.images[0]} className="card-img-top card-hover" height={200} alt="card-img" loading='lazy' />
                 <div className="card-body">
-                  <h5 className='fw-bold line-clamp' style={{ cursor: "pointer" }}> <Link className='text-dark' to={`/listing/${item._id}`}>{item.name}</Link></h5>
+                  <h5 className='fw-bold line-clamp' style={{ cursor: "pointer" }}> <Link className='text-dark' to={`/listing/${item?._id}`}>{item?.name}</Link></h5>
                   <p className='text-muted fw-semibold d-flex justify-content-start line-clamp align-items-center gap-1' style={{ fontSize: "14px" }}> <FaLocationDot className='text-success' /> {item.address}</p>
-                  <p className="card-text text-muted fw-semibold lh-sm line-clamp" style={{ fontSize: "14px" }}>{item.description}</p>
-                  <span className='text-muted fw-semibold'>${item.regularPrice}/month</span>
+                  <p className="card-text text-muted fw-semibold lh-sm line-clamp" style={{ fontSize: "14px" }}>{item?.description}</p>
+                  <span className='text-muted fw-semibold'>${item?.regularPrice}/month</span>
                   <div className='d-flex justify-content-start align-items-center gap-3 fw-bold' style={{ fontSize: "15px" }}>
                     <span>{item.bedrooms} {item.bedrooms > 1 ? "Beds" : "Bed"}</span>
                     <span>{item.bathrooms} {item.bathrooms > 1 ? "baths" : "Bath"}</span>
@@ -182,17 +182,17 @@ export default function Home() {
         </div>
         <div className='row  justify-content-start'>
           {saleData.length > 0 ? saleData.map((item) => {
-            return <div key={item._id} className='p-2 col-sm-10 col-md-6 col-lg-3 '>
+            return <div key={item?._id} className='p-2 col-sm-10 col-md-6 col-lg-3 '>
               <div className="card shadow-sm border-0 w-100 " >
-                <img src={item.images[0]} loading='lazy' className="card-img-top card-hover" height={200} alt="card-img" />
+                <img src={item?.images[0]} loading='lazy' className="card-img-top card-hover" height={200} alt="card-img" />
                 <div className="card-body">
-                  <h5 className='fw-bold line-clamp' style={{ cursor: "pointer" }}> <Link className='text-dark' to={`/listing/${item._id}`}>{item.name}</Link></h5>
-                  <p className='text-muted fw-semibold d-flex justify-content-start line-clamp align-items-center gap-1' style={{ fontSize: "14px" }}> <FaLocationDot className='text-success' />{item.address}</p>
-                  <p className="card-text text-muted fw-semibold lh-sm line-clamp" style={{ fontSize: "14px" }}>{item.description}</p>
+                  <h5 className='fw-bold line-clamp' style={{ cursor: "pointer" }}> <Link className='text-dark' to={`/listing/${item?._id}`}>{item?.name}</Link></h5>
+                  <p className='text-muted fw-semibold d-flex justify-content-start line-clamp align-items-center gap-1' style={{ fontSize: "14px" }}> <FaLocationDot className='text-success' />{item?.address}</p>
+                  <p className="card-text text-muted fw-semibold lh-sm line-clamp" style={{ fontSize: "14px" }}>{item?.description}</p>
                   <span className='text-muted fw-semibold'>${item.regularPrice}/month</span>
                   <div className='d-flex justify-content-start align-items-center gap-3 fw-bold' style={{ fontSize: "15px" }}>
-                    <span>{item.bedrooms} {item.bedrooms > 1 ? "Beds" : "Bed"}</span>
-                    <span>{item.bathrooms} {item.bathrooms > 1 ? "baths" : "Bath"}</span>
+                    <span>{item?.bedrooms} {item?.bedrooms > 1 ? "Beds" : "Bed"}</span>
+                    <span>{item?.bathrooms} {item?.bathrooms > 1 ? "baths" : "Bath"}</span>
                   </div>
                 </div>
               </div>
