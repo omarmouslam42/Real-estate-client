@@ -11,6 +11,7 @@ import { FaLocationDot } from 'react-icons/fa6';
 import { IoMdAddCircleOutline } from "react-icons/io";
 // import { Helmet } from 'react-helmet';
 import dotenv from "dotenv"
+import { HelmetProvider,Helmet } from 'react-helmet-async';
 // dotenv.config("dotenv")
 
 
@@ -54,6 +55,14 @@ export default function Home() {
 
   return (
     <div>
+      <HelmetProvider>
+        <div>
+          <Helmet>
+            <meta />
+            <title >Home</title>
+          </Helmet>
+        </div>
+      </HelmetProvider>
 
       <div className='container my-5'>
         <h1 className='w-50 fw-bolder'>Find your next <span className='text-muted'>perfect</span><br /> place with ease</h1>

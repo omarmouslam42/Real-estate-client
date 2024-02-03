@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { MdError } from "react-icons/md";
 import { useDispatch } from 'react-redux';
-import { Helmet } from 'react-helmet';
 import OAuth from '../components/OAuth';
+import { HelmetProvider,Helmet } from 'react-helmet-async';
 
 export default function Signup() {
   const [formData, setFormData] = useState({})
@@ -54,9 +54,14 @@ export default function Signup() {
 
   return (
     <main className='d-flex justify-content-center align-items-center w-75 mx-auto'>
-      <Helmet>
-        <title>Sign up</title>
-      </Helmet>
+    <HelmetProvider>
+        <div>
+          <Helmet>
+            <meta />
+            <title >Sign up</title>
+          </Helmet>
+        </div>
+      </HelmetProvider>
       <div className='w-50 mt-4'>
         <h2 className='text-center fw-bold'>Sign Up</h2>
         <div className='mt-4'>
